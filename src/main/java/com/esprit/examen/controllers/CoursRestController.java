@@ -28,6 +28,7 @@ ICoursService coursService;
 @PostMapping("/ajouterCours")
 @ResponseBody
 public Cours ajouterCours(@RequestBody Cours cours) {
+	l.info("In ajouterCours() : ");
 	coursService.addCours(cours);
 	return cours;
 }
@@ -42,7 +43,14 @@ public Cours modifierCours(@RequestBody Cours cours) {
 @DeleteMapping("/supprimerCours/{coursId}")
 @ResponseBody
 public void supprimerCours(@PathVariable("coursId") Long coursId) {
-	coursService.supprimerCours(coursId);
+	try {
+		l.info("In supprimerCours() : ");
+		l.debug("Je vais lancer la suppression.");
+		coursService.supprimerCours(coursId);
+		l.debug("Je viens de lancer la suppression. ");
+		l.info("Out supprimerCours() without errors.");
+	}
+	catch (Exception e) { l.error("Erreur dans supprimerCours() : " + e); }
 
 }
 
