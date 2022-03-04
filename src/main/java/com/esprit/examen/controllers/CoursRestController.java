@@ -12,15 +12,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import com.esprit.examen.entities.Cours;
 import com.esprit.examen.services.ICoursService;
 
 @RestController
 public class CoursRestController {
 
-	private static final Logger l = LogManager.getLogger(CoursRestController.class);
+
 
 @Autowired
 ICoursService coursService;
@@ -43,7 +41,6 @@ public Cours modifierCours(@RequestBody Cours cours) {
 @ResponseBody
 public void supprimerCours(@PathVariable("coursId") Long coursId) {
 	coursService.supprimerCours(coursId);
-
 }
 
 @GetMapping("/listeCours")
