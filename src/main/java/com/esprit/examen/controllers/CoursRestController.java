@@ -12,15 +12,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import com.esprit.examen.entities.Cours;
 import com.esprit.examen.services.ICoursService;
 
 @RestController
 public class CoursRestController {
 
-	private static final Logger l = LogManager.getLogger(CoursRestController.class);
+
 
 @Autowired
 ICoursService coursService;
@@ -28,7 +26,6 @@ ICoursService coursService;
 @PostMapping("/ajouterCours")
 @ResponseBody
 public Cours ajouterCours(@RequestBody Cours cours) {
-	l.info("In ajouterCours() : ");
 	coursService.addCours(cours);
 	return cours;
 }
@@ -43,15 +40,7 @@ public Cours modifierCours(@RequestBody Cours cours) {
 @DeleteMapping("/supprimerCours/{coursId}")
 @ResponseBody
 public void supprimerCours(@PathVariable("coursId") Long coursId) {
-	try {
-		l.info("In supprimerCours() : ");
-		l.debug("Je vais lancer la suppression.");
-		coursService.supprimerCours(coursId);
-		l.debug("Je viens de lancer la suppression. ");
-		l.info("Out supprimerCours() without errors.");
-	}
-	catch (Exception e) { l.error("Erreur dans supprimerCours() : " + e); }
-
+	coursService.supprimerCours(coursId);
 }
 
 @GetMapping("/listeCours")

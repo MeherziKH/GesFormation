@@ -24,8 +24,8 @@ public class Participant implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Experience experience;
 	
-    @ManyToMany(mappedBy="participants")
-    Set<Session> sessions;
+    //@ManyToMany(mappedBy="participants")
+    //Set<Session> sessions;
 	
 	public Long getId() {
 		return id;
