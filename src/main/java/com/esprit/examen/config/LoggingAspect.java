@@ -19,7 +19,13 @@ public class LoggingAspect {
 		String name = joinPoint.getSignature().getName();
 		l.info("méthode : " + name +" exécutée avec succès");
 	}
+<<<<<<< HEAD
 	@Around("execution(* com.esprit.examen.service.*.*(..))")
+=======
+
+
+	@Around("execution(* com.esprit.examen.services.*.*(..))")
+>>>>>>> bb85b931b83799a18bc536e87862c9aea57aa014
 	public Object profile(ProceedingJoinPoint pjp) throws Throwable {
 		long start = System.currentTimeMillis();
 		Object obj = pjp.proceed();
@@ -27,6 +33,9 @@ public class LoggingAspect {
 		l.info("Method execution time: " + elapsedTime + " milliseconds.");
 		return obj;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> bb85b931b83799a18bc536e87862c9aea57aa014
 
 }

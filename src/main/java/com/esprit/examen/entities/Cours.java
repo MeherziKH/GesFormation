@@ -21,8 +21,11 @@ public class Cours implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private TypeCours typeCours;
 	private String intitule;
+
 	@ManyToMany(mappedBy="cours")
 	private Set<Session> sessions;
+
+
 	public Long getId() {
 		return id;
 	}
