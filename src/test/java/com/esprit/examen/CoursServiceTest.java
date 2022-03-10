@@ -36,6 +36,7 @@ public class CoursServiceTest {
 
 
     @Test
+    @Transactional
     public void testaddCours() {
         Cours cour = new Cours(null, "description", TypeCours.Informatique, "intitle");
         coursService.addCours(cour);
@@ -46,8 +47,11 @@ public class CoursServiceTest {
             Assert.assertEquals(TypeCours.Informatique, savedCour.getTypeCours());
             Assert.assertEquals("description", savedCour.getDescription());
             Assert.assertEquals("intitle", savedCour.getIntitule());
+
         }finally {
+
             coursService.supprimerCours(id);
+
         }
     }
 
@@ -78,14 +82,19 @@ public class CoursServiceTest {
 
 
     @Test
+    @Transactional
     public void testSupprimerCours() {
         Cours cour= new Cours(null, "description", TypeCours.Informatique, "intitle");
         coursService.addCours(cour);
         Long id = cour.getId();
         Assert.assertNotNull(id);
+        List<Cours> cours1 =  coursService.getCours();
+        int firstLength1 = cours1.size();
         coursService.supprimerCours(id);
-        Cours deletedCour = coursService.getCoursById(id);
-        Assert.assertNull(deletedCour);
+        List<Cours> cours2 =  coursService.getCours();
+        int firstLength2 = cours2.size();
+        Assert.assertEquals(firstLength2,firstLength1 - 1);
+
     }
 
  }
