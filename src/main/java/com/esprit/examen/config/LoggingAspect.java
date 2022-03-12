@@ -5,19 +5,14 @@ import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
-
 
 @Component
 @Aspect
 public class LoggingAspect {
-	
+
 	private static final Logger l = LogManager.getLogger(LoggingAspect.class);
+
 
 	@After("execution(* com.esprit.examen.services.*.*(..))")
 	public void logMethodExit(JoinPoint joinPoint) {
@@ -25,8 +20,7 @@ public class LoggingAspect {
 		l.info("méthode : " + name +" exécutée avec succès");
 	}
 
-
-	@Around("execution(* com.esprit.examen.services.*.*(..))")
+	@Around("execution(* com.esprit.examen.service.*.*(..))")
 	public Object profile(ProceedingJoinPoint pjp) throws Throwable {
 		long start = System.currentTimeMillis();
 		Object obj = pjp.proceed();
@@ -34,5 +28,8 @@ public class LoggingAspect {
 		l.info("Method execution time: " + elapsedTime + " milliseconds.");
 		return obj;
 	}
+
+
+
 
 }

@@ -58,7 +58,7 @@ public class CoursService implements ICoursService {
 
 	@Override
 	public Cours getCoursById(Long id) {
-		Cours cour =  coursRepository.getById(id);
+		Cours cour =  coursRepository.getOne(id);
 		return cour;
 	}
 
@@ -66,7 +66,7 @@ public class CoursService implements ICoursService {
 	@Override
 	public void affecterCoursASession(Long coursId, Long sessionId)
 	{
-		Session session =  sessionRepository.getById(sessionId);
+		Session session =  sessionRepository.getOne(coursId);
 		List<Cours> cours = coursRepository.findAll();
 		//session.setCours(cours);
         

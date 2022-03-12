@@ -28,7 +28,9 @@ public class Session implements Serializable{
 	@ManyToOne
     Formateur formateur;
 	@ManyToMany
-	Set<Cours> cours;
+	Set<Cours> cours;	
+	@ManyToMany
+	Set<Participant> participants;
 	
 	public Long getId() {
 		return id;
@@ -72,6 +74,14 @@ public class Session implements Serializable{
 	public void setCours(Set<Cours> cours) {
 		this.cours = cours;
 	}
+	
+	public Set<Participant> getParticipants() {
+		return participants;
+	}
+	public void setParticipants(Set<Participant> participants) {
+		this.participants = participants;
+	}
+	
 	@Override
 	public String toString() {
 		return "Session [id=" + id + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", duree=" + duree

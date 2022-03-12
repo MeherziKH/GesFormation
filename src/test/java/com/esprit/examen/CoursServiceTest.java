@@ -47,8 +47,11 @@ public class CoursServiceTest {
             Assert.assertEquals(TypeCours.Informatique, savedCour.getTypeCours());
             Assert.assertEquals("description", savedCour.getDescription());
             Assert.assertEquals("intitle", savedCour.getIntitule());
+
         }finally {
+
             coursService.supprimerCours(id);
+
         }
     }
 
