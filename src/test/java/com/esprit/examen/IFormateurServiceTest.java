@@ -26,16 +26,6 @@ public class IFormateurServiceTest {
     @Test
     public void testListFormateur() {
 
-        List<Formateur> lst1 =  formateurService.listFormateurs();
-        int val1 = lst1.size();
-        Formateur f1 = new Formateur(11L,"khaled","naili",Ingénieur,EXPERT,"khaled.naili@esprit.tn","password123");
-        formateurService.addFormateur(f1);
-        List<Formateur> lst2 =  formateurService.listFormateurs();
-        int val2 = lst2.size();
-
-
-
-        assertEquals(val2,val1 +1);
 
 
 
