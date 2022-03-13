@@ -75,9 +75,8 @@ public class Participant implements Serializable {
 				+ ", experience=" + experience + "]";
 	}
 	
-	public Participant(Long id, String nom, String prenom, String tel, String email, Experience experience) {
+	public Participant(String nom, String prenom, String tel, String email, Experience experience) {
 		super();
-		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.tel = tel;
