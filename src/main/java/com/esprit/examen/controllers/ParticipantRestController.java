@@ -29,6 +29,7 @@ public class ParticipantRestController {
 	@ResponseBody
 	public Participant ajouterParticipant(@RequestBody Participant participant) {
 		participantService.addParticipant(participant);
+		l.info("Participant Ajoute");
 		return participant;
 	}
 	
@@ -36,12 +37,14 @@ public class ParticipantRestController {
 	@ResponseBody
 	public Participant modifierParticipant(@RequestBody Participant participant) {
 		participantService.modifierParticipant(participant);
+		l.info("Participant Modifie");
 		return participant;
 	}
 
 	@DeleteMapping("/supprimerParticipant/{participantId}")
 	@ResponseBody
 	public void supprimerParticipant(@PathVariable("participantId") Long participantId) {
+		l.info("Participant supprime");
 		participantService.supprimerParticipant(participantId);
 
 	}
@@ -49,7 +52,7 @@ public class ParticipantRestController {
 	@GetMapping("/listParticipant")
 	@ResponseBody
 	public List<Participant> listParticipant() {
-
+		l.info("Afficher List participant");
 		return  participantService.getParticipants();
 	}
 }
