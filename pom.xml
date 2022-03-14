@@ -10,7 +10,11 @@
 	</parent>
 	<groupId>com.esprit.examen</groupId>
 	<artifactId>GesF</artifactId>
+<<<<<<< HEAD
 	<version>2.2</version>
+=======
+	<version>2.3</version>
+>>>>>>> e0b697c4c423c726215d2d3d6bcbc4cde0ea3c24
 	<name>GesF</name>
 	<description>springBootProject</description>
 	<properties>
