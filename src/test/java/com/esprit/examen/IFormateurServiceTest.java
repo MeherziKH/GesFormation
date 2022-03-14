@@ -1,6 +1,10 @@
 package com.esprit.examen;
 
-import com.esprit.examen.entities.*;
+
+import com.esprit.examen.entities.Contrat;
+import com.esprit.examen.entities.Formateur;
+import com.esprit.examen.entities.Poste;
+
 import com.esprit.examen.repositories.FormateurRepository;
 import com.esprit.examen.services.FormateurService;
 import org.junit.Assert;
